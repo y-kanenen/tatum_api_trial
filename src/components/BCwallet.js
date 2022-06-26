@@ -16,12 +16,12 @@ const BCwallet = () => {
         {
             method: 'GET',
             headers: {
-            'accept': 'application/json',
-            'x-api-key': '4845ff3d-6595-4651-a58f-48dd1d68dc0c'
+                'x-api-key': '4845ff3d-6595-4651-a58f-48dd1d68dc0c',
             }
         }
         );
         const data = await resp.text();
+        console.log(resp);
         console.log(data);
     }
 
