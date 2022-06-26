@@ -7,11 +7,10 @@ const BCwallet = () => {
     //const [mnemonic, setMnemonic] = useState('');
     //const [xpub, setXpubc] = useState('');
 
-
-
-    const query = new URLSearchParams({mnemonic: 'string'}).toString();
+    
 
     const post2 = async() => {
+        const query = new URLSearchParams({mnemonic: 'string'}).toString();
         const resp = await fetch(
         `https://api-us-west1.tatum.io/v3/bitcoin/wallet?${query}`,
         {
