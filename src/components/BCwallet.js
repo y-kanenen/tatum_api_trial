@@ -10,9 +10,10 @@ const BCwallet = () => {
     
 
     const post2 = async() => {
-        const query = new URLSearchParams({mnemonic: 'string'}).toString();
+        //const query = new URLSearchParams({mnemonic: 'string'}).toString();
         const resp = await fetch(
-            `https://api-us-west1.tatum.io/v3/ethereum/wallet?${query}`,
+            //`https://api-us-west1.tatum.io/v3/ethereum/wallet?${query}`,
+            `https://api-us-west1.tatum.io/v3/ethereum/wallet`,
             {
                 method: 'GET',
                 headers: {
