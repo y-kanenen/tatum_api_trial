@@ -3,8 +3,13 @@ import React, { useState, useEffect } from 'react';
 
 const BCwallet = () => {
 
-    const [extpubkey, setExtPubKey] = useState('');
-    const [privkey, setPrivKey] = useState('');
+    //const [extpubkey, setExtPubKey] = useState('');
+    //const [privkey, setPrivKey] = useState('');
+    
+    const [keys, setKeys] = useState({
+        private: '',
+        public: '',
+    });
 
     
 
@@ -66,21 +71,27 @@ const BCwallet = () => {
           const PrivKey = await resp3.json();
           console.log(PrivKey.key);
 
-          setExtPubKey(JSON.parse(ExtPubKeyJSON).address);
-          setPrivKey(PrivKey.key);
+          //setExtPubKey(JSON.parse(ExtPubKeyJSON).address);
+          //setPrivKey(PrivKey.key);
+          setKeys({
+              ...keys,
+              private: PrivKey.key,
+              public: JSON.parse(ExtPubKeyJSON).address
+          })
 
     }
 
     useEffect(() => {
-        console.log(extpubkey)
-        console.log(privkey)
-      }, [extpubkey, privkey]);
+        //console.log(extpubkey)
+        //console.log(privkey)
+        console.log(keys)
+      }, [keys]);
 
     
     return (
         <div>
             <button onClick={post2}>
-                Enable
+                Create Keys
             </button>
         </div>
     )
