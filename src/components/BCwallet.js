@@ -21,11 +21,11 @@ const BCwallet = () => {
         }
         );
         const data = await resp.text();
-        console.log(data);
+        console.log(query);
+        console.log(resp);
         console.log(JSON.parse(data).mnemonic);
         console.log(JSON.parse(data).xpub);
 
-        //const xpub = 'tpubDE2DkRkiJuCNhXX7pjGp9q2MNxMDJhtyPAq6Jqz371KDTBmE7QJtkUm9Qd8XXSwgSH61BFyJt3Z6hcfUkTy6zNkYkPrmQsBkmcFb8HvwEoJ';
         const xpub = JSON.parse(data).xpub
         const index = '1';
         const resp2 = await fetch(
