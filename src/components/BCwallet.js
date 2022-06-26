@@ -1,5 +1,4 @@
-//import React, { useState, useEffect } from 'react';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 //import axios from 'axios';
 
 const BCwallet = () => {
@@ -44,7 +43,7 @@ const BCwallet = () => {
 
         const ExtPubKeyJSON = await resp2.text();
         console.log(JSON.parse(ExtPubKeyJSON).address);
-        setExtPubKey(JSON.parse(ExtPubKeyJSON).address);
+        
 
         //Private key
 
@@ -66,11 +65,16 @@ const BCwallet = () => {
           
           const PrivKey = await resp3.json();
           console.log(PrivKey.key);
+
+          setExtPubKey(JSON.parse(ExtPubKeyJSON).address);
           setPrivKey(PrivKey.key);
 
-          console.log(extpubkey)
-          console.log(privkey)
     }
+
+    useEffect(() => {
+        console.log(extpubkey)
+        console.log(privkey)
+      }, [extpubkey, privkey]);
 
     
     return (
