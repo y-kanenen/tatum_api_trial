@@ -91,6 +91,27 @@ const BCwallet = () => {
         console.log(keys.public)
     }, [keys]);
 
+    const uploadMeta = async() => {
+      const form = new FormData();
+      form.append("musicURL", music);
+      form.append("imageURL", image);
+      console.log(form);
+      
+      const resp = await fetch(
+        `https://api-us-west1.tatum.io/v3/ipfs`,
+        {
+          method: 'POST',
+          headers: {
+            'x-api-key': '4845ff3d-6595-4651-a58f-48dd1d68dc0c'
+          },
+          body: form
+        }
+      );
+      
+      const data = await resp.text();
+      console.log(data);
+    }
+
     const mintNFT = async() => {
 
         const resp = await fetch(
@@ -154,9 +175,9 @@ const BCwallet = () => {
             <button onClick={createKeys}>
                 Create Keys
             </button>
-            
-
-            <br />
+            <button onClick={uploadMeta}>
+                Metadata
+            </button>
             <button onClick={mintNFT}>
                 Mint
             </button>
