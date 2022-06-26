@@ -22,7 +22,23 @@ const BCwallet = () => {
         );
         const data = await resp.text();
         console.log(data);
-        console.log(data["xpub"]);
+        console.log(data.xpub);
+
+        //const xpub = 'tpubDE2DkRkiJuCNhXX7pjGp9q2MNxMDJhtyPAq6Jqz371KDTBmE7QJtkUm9Qd8XXSwgSH61BFyJt3Z6hcfUkTy6zNkYkPrmQsBkmcFb8HvwEoJ';
+        const xpub = data.xpub
+        const index = '1';
+        const resp2 = await fetch(
+        `https://api-us-west1.tatum.io/v3/bitcoin/address/${xpub}/${index}`,
+        {
+            method: 'GET',
+            headers: {
+            'x-api-key': '4845ff3d-6595-4651-a58f-48dd1d68dc0c'
+            }
+        }
+        );
+
+        const data2 = await resp2.text();
+        console.log(data2);
     }
 
     
