@@ -120,7 +120,27 @@ const BCwallet = () => {
         const data = await resp.json();
         console.log(data);
 
-        
+        const resp2 = await fetch(
+            `https://api-us-west1.tatum.io/v3/nft/mint`,
+            {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'x-testnet-type': 'ethereum-rinkeby',
+                'x-api-key': '4845ff3d-6595-4651-a58f-48dd1d68dc0c'
+              },
+              body: JSON.stringify({
+                chain: 'ETH',
+                to: '0x687422eEA2cB73B5d3e242bA5456b782919AFc85',
+                url: 'https://my_token_data.com',
+                tokenId: 'ASSET_UNIT'
+              })
+            }
+        );
+          
+        const data2 = await resp2.json();
+        console.log(data2);
+
     };
 
     
