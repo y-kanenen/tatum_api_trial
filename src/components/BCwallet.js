@@ -84,7 +84,8 @@ const BCwallet = () => {
     useEffect(() => {
         //console.log(extpubkey)
         //console.log(privkey)
-        console.log(keys)
+        console.log(keys.private)
+        console.log(keys.public)
       }, [keys]);
 
     
