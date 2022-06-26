@@ -22,7 +22,7 @@ const BCwallet = () => {
             }
         );
         const data = await resp.text();
-        console.log(query);
+
         console.log(resp);
         console.log(JSON.parse(data).mnemonic);
         console.log(JSON.parse(data).xpub);
@@ -30,7 +30,7 @@ const BCwallet = () => {
         const xpub = JSON.parse(data).xpub
         const index = '1';
         const resp2 = await fetch(
-            `https://api-eu1.tatum.io/v3/ethereum/address/${xpub}/${index}`,
+            `https://api-us-west1.tatum.io/v3/ethereum/address/${xpub}/${index}`,
             {
                 method: 'GET',
                 headers: {
