@@ -21,8 +21,8 @@ const BCwallet = () => {
         }
         );
         const data = await resp.text();
-        console.log(resp);
         console.log(data);
+        console.log(data["xpub"]);
     }
 
     
