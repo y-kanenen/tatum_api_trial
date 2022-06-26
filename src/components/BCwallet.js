@@ -63,8 +63,8 @@ const BCwallet = () => {
             }
           );
           
-          const PrivKeyJSON = await resp3.json();
-          console.log(JSON.parse(PrivKeyJSON).key);
+          const PrivKey = await resp3.json();
+          console.log(PrivKey);
     }
 
     
