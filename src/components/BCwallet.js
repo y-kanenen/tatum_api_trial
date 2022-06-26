@@ -91,7 +91,7 @@ const BCwallet = () => {
     const mintNFT = async() => {
 
         const resp = await fetch(
-            `https://api-us-west1.tatum.io/v3/nft/deploy?type=testnet`,
+            `https://api-us-west1.tatum.io/v3/nft/deploy`,
             {
               method: 'POST',
               headers: {
@@ -102,11 +102,12 @@ const BCwallet = () => {
               body: JSON.stringify({
                 chain: 'ETH',
                 name: 'My ERC721',
-                symbol: 'ERC_SYMBOL',
-                fromPrivateKey: keys.private,
                 provenance: false,
                 cashback: false,
                 publicMint: true,
+                symbol: 'ERC_SYMBOL',
+                index: 0,
+                signatureId: '26d3883e-4e17-48b3-a0ee-09a3e484ac83',
                 nonce: 0,
                 fee: {
                   gasLimit: '40000',
@@ -118,6 +119,8 @@ const BCwallet = () => {
           
         const data = await resp.json();
         console.log(data);
+
+        
     };
 
     
