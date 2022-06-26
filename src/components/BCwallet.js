@@ -28,6 +28,7 @@ const BCwallet = () => {
         console.log(JSON.parse(data).mnemonic);
         console.log(JSON.parse(data).xpub);
 
+        // Extented Public Key
         const xpub = JSON.parse(data).xpub
         const index = '1';
         const resp2 = await fetch(
@@ -41,8 +42,29 @@ const BCwallet = () => {
             }
         );
 
-        const ExtPubKey = await resp2.text();
-        console.log(JSON.parse(ExtPubKey).address);
+        const ExtPubKeyJSON = await resp2.text();
+        console.log(JSON.parse(ExtPubKeyJSON).address);
+
+        //Private key
+
+        const resp3 = await fetch(
+            `https://api-us-west1.tatum.io/v3/ethereum/wallet/priv`,
+            {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'x-testnet-type': 'ethereum-ropsten',
+                'x-api-key': '4845ff3d-6595-4651-a58f-48dd1d68dc0c'
+              },
+              body: JSON.stringify({
+                index: 0,
+                mnemonic: JSON.parse(data).mnemonic
+              })
+            }
+          );
+          
+          const PrivKeyJSON = await resp3.json();
+          console.log(JSON.parse(PrivKeyJSON).key);
     }
 
     
