@@ -95,7 +95,7 @@ const BCwallet = () => {
       const form = new FormData();
       form.append("musicURL", music);
       form.append("imageURL", image);
-      console.log(form);
+      //console.log(form);
       
       const resp = await fetch(
         `https://api-us-west1.tatum.io/v3/ipfs`,
@@ -175,6 +175,9 @@ const BCwallet = () => {
             <button onClick={createKeys}>
                 Create Keys
             </button>
+            <input type="file" id="name">
+              image select
+            </input>
             <button onClick={uploadMeta}>
                 Metadata
             </button>
