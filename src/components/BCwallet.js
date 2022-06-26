@@ -22,6 +22,7 @@ const BCwallet = () => {
         );
         const data = await resp.text();
         console.log(data);
+        console.log(JSON.parse(data).mnemonic);
         console.log(JSON.parse(data).xpub);
 
         //const xpub = 'tpubDE2DkRkiJuCNhXX7pjGp9q2MNxMDJhtyPAq6Jqz371KDTBmE7QJtkUm9Qd8XXSwgSH61BFyJt3Z6hcfUkTy6zNkYkPrmQsBkmcFb8HvwEoJ';
@@ -37,8 +38,8 @@ const BCwallet = () => {
         }
         );
 
-        const data2 = await resp2.text();
-        console.log(data2);
+        const ExtPubKey = await resp2.text();
+        console.log(JSON.parse(ExtPubKey).address);
     }
 
     
