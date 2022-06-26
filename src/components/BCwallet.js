@@ -13,7 +13,7 @@ const BCwallet = () => {
 
     
 
-    const post2 = async() => {
+    const createKeys = async() => {
         //const query = new URLSearchParams({mnemonic: 'string'}).toString();
         const resp = await fetch(
             //`https://api-us-west1.tatum.io/v3/ethereum/wallet?${query}`,
@@ -86,13 +86,50 @@ const BCwallet = () => {
         //console.log(privkey)
         console.log(keys.private)
         console.log(keys.public)
-      }, [keys]);
+    }, [keys]);
+
+    const mintNFT = async() => {
+
+        const resp = await fetch(
+            `https://api-us-west1.tatum.io/v3/nft/deploy`,
+            {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'x-testnet-type': 'ethereum-ropsten',
+                'x-api-key': '4845ff3d-6595-4651-a58f-48dd1d68dc0c'
+              },
+              body: JSON.stringify({
+                chain: 'ETH',
+                name: 'My ERC721',
+                symbol: 'ERC_SYMBOL',
+                fromPrivateKey: keys.private,
+                provenance: false,
+                cashback: false,
+                publicMint: true,
+                nonce: 0,
+                fee: {
+                  gasLimit: '40000',
+                  gasPrice: '20'
+                }
+              })
+            }
+        );
+          
+        const data = await resp.json();
+        console.log(data);
+    };
 
     
     return (
         <div>
-            <button onClick={post2}>
+            <button onClick={createKeys}>
                 Create Keys
+            </button>
+
+            <br />
+            <button onClick={mintNFT}>
+                Mint
             </button>
         </div>
     )
