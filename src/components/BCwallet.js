@@ -11,7 +11,10 @@ const BCwallet = () => {
         public: '',
     });
 
-    
+    const image = 'https://ethnyc-src.s3.us-west-2.amazonaws.com/1647072713.3297904IMG_186.JPG'
+    const music = 'https://ethnyc-src.s3.us-west-2.amazonaws.com/1649055425.3073812op1.mp3'
+    console.log("music url: ", music)
+    console.log("image url: ", image)
 
     const createKeys = async() => {
         //const query = new URLSearchParams({mnemonic: 'string'}).toString();
@@ -102,8 +105,8 @@ const BCwallet = () => {
               body: JSON.stringify({
                 chain: 'ETH',
                 name: 'My ERC721',
-                provenance: false,
-                cashback: false,
+                provenance: true,
+                cashback: true,
                 publicMint: true,
                 symbol: 'ERC_SYMBOL',
                 index: 0,
@@ -146,9 +149,12 @@ const BCwallet = () => {
     
     return (
         <div>
+            
+            
             <button onClick={createKeys}>
                 Create Keys
             </button>
+            
 
             <br />
             <button onClick={mintNFT}>
