@@ -91,7 +91,7 @@ const BCwallet = () => {
     const mintNFT = async() => {
 
         const resp = await fetch(
-            `https://api-us-west1.tatum.io/v3/nft/deploy`,
+            `https://api-us-west1.tatum.io/v3/nft/deploy?type=testnet`,
             {
               method: 'POST',
               headers: {
