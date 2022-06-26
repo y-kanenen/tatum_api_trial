@@ -9,8 +9,8 @@ const BCwallet = () => {
 
     const post = async() => {
         const res = await axios.get({
-            baseURL: 'https://api-eu1.tatum.io/v3',
-            url: '/bitcoin/wallet',   
+            //baseURL: 'https://api-eu1.tatum.io/v3',
+            url: 'https://api-eu1.tatum.io/v3/bitcoin/wallet',   
             headers: {
                 'accept': 'application/json',
                 'x-api-key': '4845ff3d-6595-4651-a58f-48dd1d68dc0c',
